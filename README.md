@@ -1,50 +1,153 @@
-# Welcome to your Expo app 👋
+Here’s a polished GitHub README for your React Native Internship App, including placeholders for the Supabase SQL and video link:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+````markdown
+# React Native Internship App
 
-## Get started
+A React Native mobile application built with **Expo** and **Supabase**, featuring authentication, posts, and todos with Row Level Security (RLS).
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 📸 Features
 
-2. Start the app
+- ✅ Email/Password Authentication with Supabase  
+- ✅ Email Verification Flow  
+- ✅ Two Tabs: **Posts** and **To Do**  
+- ✅ Infinite Scroll Pagination  
+- ✅ CRUD Operations (Create, Read, Update, Delete)  
+- ✅ Row Level Security (RLS)  
+- ✅ Real-time Row Counts  
+- ✅ Pull-to-Refresh Functionality  
+- ✅ User-specific Data Filtering  
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 🚀 Quick Start
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Prerequisites
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Node.js (v16 or higher)  
+- npm or yarn  
+- Expo CLI  
+- Supabase account with configured project  
 
-## Get a fresh project
+### Installation
 
-When you're ready, run:
+1. **Create the project or clone repo:**
+```bash
+npx create-expo-app rn-internship-app
+cd rn-internship-app
+````
+
+2. **Install dependencies:**
 
 ```bash
-npm run reset-project
+npm install @supabase/supabase-js @react-native-async-storage/async-storage
+npm install @react-navigation/native @react-navigation/bottom-tabs @react-navigation/native-stack
+npm install react-native-screens react-native-safe-area-context react-native-url-polyfill
+npx expo install expo-constants
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+3. **Create `.env` file in root:**
 
-## Learn more
+```env
+EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. **Update `app.json` (add extra config if needed):**
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```json
+{
+  "expo": {
+    "extra": {
+      "EXPO_PUBLIC_SUPABASE_URL": "https://your-project.supabase.co",
+      "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-anon-key-here"
+    }
+  }
+}
+```
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 🗄️ Supabase Setup
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Database Tables
+
+**1. table_general (Posts)**
+
+* `id` (uuid, primary key)
+* `title` (text)
+* `body` (text)
+* `owner_id` (uuid, foreign key to auth.users)
+* `created_at` (timestamp)
+
+**2. table_rls (To Do)**
+
+* `id` (uuid, primary key)
+* `title` (text)
+* `body` (text)
+* `user_id` (uuid, foreign key to auth.users)
+* `created_at` (timestamp)
+
+### RLS Policies
+
+**table_general:**
+
+* All authenticated users can **read** all posts
+* Users can only **create** posts with their own `owner_id`
+* Users can only **update/delete** their own posts
+
+**table_rls:**
+
+* Users can only **read** their own todos
+* Users can only **create** todos with their own `user_id`
+* Users can only **update/delete** their own todos
+
+> See [supabase.sql](#) for the complete SQL setup script.
+
+---
+
+## 🏃 Running the App
+
+```bash
+# Start Expo development server
+npx expo start
+
+# Run on iOS simulator
+npx expo start --ios
+
+# Run on Android emulator
+npx expo start --android
+
+# Scan QR code with Expo Go app on physical device
+```
+
+---
+
+## 📂 Resources
+
+* **Supabase SQL Script:** [Link to supabase.sql](YOUR_DRIVE_LINK_HERE)
+* **Demo Video:** [Drive Link](YOUR_DRIVE_LINK_HERE)
+
+---
+
+## 💡 Notes
+
+* Ensure **Row Level Security (RLS)** is enabled on Supabase tables.
+* Environment variables are critical for Supabase connection—do not commit `.env`.
+
+---
+
+## 📬 Contact
+
+* Built with ❤️ using **React Native**, **Expo**, and **Supabase**.
+* For any issues or contributions, feel free to open a PR or issue in this repo.
+
+```
+
+---
+
+If you want, I can also create a **more visually appealing version with badges, tech stack icons, and screenshots** that looks like a professional GitHub project page. This usually makes internships or portfolio projects stand out.  
+
+Do you want me to do that next?
+```
