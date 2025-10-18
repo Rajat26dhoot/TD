@@ -1,9 +1,7 @@
-Here’s a polished GitHub README for your React Native Internship App, including placeholders for the Supabase SQL and video link:
-
 ````markdown
-# React Native Internship App
+ React Native Internship App
 
-A React Native mobile application built with **Expo** and **Supabase**, featuring authentication, posts, and todos with Row Level Security (RLS).
+A React Native mobile application built with Expo and Supabase, featuring authentication, posts, and todos with Row Level Security (RLS).
 
 ---
 
