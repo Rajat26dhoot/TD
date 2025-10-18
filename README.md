@@ -125,7 +125,7 @@ npx expo start --android
 ## 📂 Resources
 
 * **Supabase SQL Script:** [Link to supabase.sql](YOUR_DRIVE_LINK_HERE)
-* **Demo Video:** [Drive Link](YOUR_DRIVE_LINK_HERE)
+* **Demo Video:** [Drive Link](https://drive.google.com/drive/folders/15Xx96HM4-Zw8oV2HRMPuOD1mwZZquNps)
 
 ---
 
